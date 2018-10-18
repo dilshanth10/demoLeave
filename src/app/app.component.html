@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<form #roleForm="ngForm">
+
+  <!-- {{roleForm.value | json}} -->
+  <hr />
+  <!-- {{role | json}} -->
+  <hr />
+
+
+  <div>
+    <label>Role Id:</label>
+    <input type="text" name="rId" [ngModel]="roleObj.roleId">
+    <br /><br />
+  </div>
+
+  <div>
+    <label>Role Name:</label>
+    <input type="text" name="rName" [(ngModel)]="roleObj.roleName">
+    <br /><br />
+  </div>
+
+  <button (click)="createRole()">Add Role</button>
+  <button (click)="updateRole()">Update Role</button>
+  
+  
+</form>
+<br /><br />
+
+
+<pre>
+<!-- {{roles | json}} -->
+</pre>
+
+<table border="1">
+  <tr>
+    <th>Role Id</th>
+    <th>Role Name</th>
+  </tr>
+  <tr *ngFor="let role of roles">
+    <td>{{role.roleId}}</td>
+    <td>{{role.roleName}}</td>
+    <td>
+      <button (click)="deleteRole(role)">Delete</button>
+    </td>
+    <td>
+        <button (click)="editRole(role)">Update Role</button>
+    </td>
+  </tr>
+</table>
+
+<div style="color:red">{{msg}}</div>
+
+<a routerLink="/department">dep</a>
+<a routerLink="/leave">dep</a>
+<router-outlet></router-outlet>
